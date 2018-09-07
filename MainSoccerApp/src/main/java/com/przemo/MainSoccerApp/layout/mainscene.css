@@ -1,0 +1,52 @@
+.root
+{
+	-fx-background-color: firebrick;
+	-fx-background-radius: 50;
+}
+
+.text
+{
+	-fx-font-weight: bold;
+	-fx-text-fill: black;
+}
+#text_username
+{
+	-fx-fill : red;
+	-fx-font-weight: bold;
+}
+
+#text_password
+{
+	-fx-fill : red;
+	-fx-font-weight: bold;
+}
+
+#textfield_password
+{
+	-fx-background-color: transparent;
+	-fx-border-color: red;
+	-fx-border-width: 1px;
+	-fx-border-radius: 5px;
+}
+
+#textfield_username
+{
+	-fx-background-color: transparent;
+	-fx-border-color: red;
+	-fx-border-width: 1px;
+	-fx-border-radius: 5px;
+}
+
+.button
+{
+	-fx-background-color: transparent;
+	-fx-border-color: red;
+	-fx-border-width: 1px;
+	-fx-border-radius: 5px;
+	
+}
+
+.button:hover
+{
+	-fx-background-color: red;
+}
