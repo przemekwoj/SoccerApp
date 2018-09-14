@@ -4,19 +4,16 @@ package com.przemo.MainSoccerApp.controllers;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import com.przemo.MainSoccerApp.entities.Player;
 import com.przemo.MainSoccerApp.entities.User;
+import com.przemo.hibernate.service.PlayerService;
 import com.przemo.hibernate.service.UserService;
 
-import javafx.animation.Interpolator;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
-import javafx.event.EventHandler;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -24,16 +21,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.effect.ColorAdjust;
-import javafx.scene.effect.DropShadow;
-import javafx.scene.effect.InnerShadow;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 
 public class MainSceneController implements Initializable
@@ -60,8 +51,13 @@ public class MainSceneController implements Initializable
 	private Text hint;
 	
 	private UserService userService = new UserService();
+	private PlayerService playerService = new PlayerService();
+	
+	// we need them to see wchich user is already online
 	static String uname;
 	static String pass;
+	static int idManager;
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) 
 	{
@@ -82,6 +78,7 @@ public class MainSceneController implements Initializable
 				{
 					if(u.getPassword().equals(pass))
 					{
+					idManager = u.getId();
 					loginOK = true;
 					break;
 					}
@@ -109,6 +106,7 @@ public class MainSceneController implements Initializable
 		}
 		 
 	}
+	// login in "create account " option
 	public void ok() throws IOException
 	{
 		boolean createNewAcc = true;
@@ -120,6 +118,7 @@ public class MainSceneController implements Initializable
 			List<User> listUser = userService.findAll();
 			for(User u: listUser)
 			{
+				idManager = u.getId() + 1;
 				if(u.getUsername().equals(uname))
 				{
 					createNewAcc = false;
@@ -130,6 +129,17 @@ public class MainSceneController implements Initializable
 			{
 				//create new account
 				userService.persist(new User(uname,pass));
+				//create new standart players for user
+				List<Player> listPlayer= playerService.findAll();
+				for(Player p: listPlayer)
+				{
+					if(p.getIdmanager() == 0)
+					{
+						p.setIdmanager(idManager);
+						playerService.persist(p);
+					}
+					else break;
+				}
 				//open new window
 				Stage stage = (Stage) ok.getScene().getWindow();
 				URL url = new File("src/main/java/com/przemo/MainSoccerApp/layout/Manage.fxml").toURL();

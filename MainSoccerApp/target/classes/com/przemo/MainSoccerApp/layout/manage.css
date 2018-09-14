@@ -1,0 +1,10 @@
+#splitRec
+{
+ -fx-fill: yellow;
+ -fx-background-radius: 50;
+}
+
+.Rectangle
+{
+	-fx-background-radius: 20;
+}

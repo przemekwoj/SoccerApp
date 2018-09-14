@@ -13,5 +13,6 @@
    <property name="show_sql">false</property>
    <property name="hibernate.current_session_context_class">thread</property>
    <mapping class="com.przemo.MainSoccerApp.entities.User"/>
+   <mapping class="com.przemo.MainSoccerApp.entities.Player"/>
 </session-factory>
 </hibernate-configuration>
