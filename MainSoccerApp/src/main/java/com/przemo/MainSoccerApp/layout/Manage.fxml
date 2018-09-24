@@ -16,8 +16,8 @@
             <Image url="@../../../../image/soccrfield.png" />
          </image>
       </ImageView>
-      <Button fx:id="play" layoutX="612.0" layoutY="544.0" mnemonicParsing="false" text="PLAY" />
-      <Button fx:id="table" layoutX="609.0" layoutY="99.0" mnemonicParsing="false" text="TABLE" />
+      <Button fx:id="playButton" layoutX="612.0" layoutY="544.0" mnemonicParsing="false" onAction="#play" text="PLAY" />
+      <Button fx:id="table" layoutX="609.0" layoutY="99.0" mnemonicParsing="false" onAction="#showTable" text="TABLE" />
       <Circle fx:id="circlePlayer1" fill="DODGERBLUE" layoutX="26.0" layoutY="30.0" radius="13.0" stroke="BLACK" strokeType="INSIDE">
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -117,5 +117,8 @@
       <Text fx:id="textPlayer9" layoutX="14.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
       <Text fx:id="textPlayer14" layoutX="54.0" layoutY="445.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
       <Text fx:id="textPlayer7" layoutX="15.0" layoutY="235.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text layoutX="613.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="POWER" />
+      <Text fx:id="powerTextField" layoutX="601.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="63.22460103034973" />
+      <Text fx:id="matchResult" layoutX="583.0" layoutY="526.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="90.2245945930481" />
    </children>
 </AnchorPane>

@@ -1,13 +1,16 @@
 package com.przemo.MainSoccerApp.entities;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
-import javafx.scene.shape.Circle;
 
 @Entity
 @Table(name = "players")
@@ -42,12 +45,18 @@ public class Player
 		@Column(name = "path")
 		private String path;
 		
+		@Column(name = "dateTrain")
+		@Temporal(TemporalType.TIMESTAMP)
+		private Date dateTrain;
+		
+		@Column(name = "canPlay")
+		private boolean canPlay;
 
 
 		public Player() {
 		}
 
-		public Player(int idmanager, String position, int stamina, int power,String circle,String name,String surname,String path) {
+		public Player(int idmanager, String position, int stamina, int power,String circle,String name,String surname,String path,Date dateTrain ,boolean canPlay) {
 			super();
 			this.idmanager = idmanager;
 			this.position = position;
@@ -57,6 +66,8 @@ public class Player
 			this.name = name;
 			this.surname = surname;
 			this.path = path;
+			this.dateTrain = dateTrain;
+			this.canPlay = canPlay;
 		}
 
 		public String getPath() {
@@ -128,6 +139,22 @@ public class Player
 
 		public void setCircle(String circle) {
 			this.circle = circle;
+		}
+
+		public Date getDateTrain() {
+			return dateTrain;
+		}
+
+		public void setDateTrain(Date dateTrain) {
+			this.dateTrain = dateTrain;
+		}
+
+		public boolean isCanPlay() {
+			return canPlay;
+		}
+
+		public void setCanPlay(boolean canPlay) {
+			this.canPlay = canPlay;
 		}
 	
 }

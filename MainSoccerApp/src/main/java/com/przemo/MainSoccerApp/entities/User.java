@@ -21,14 +21,18 @@ public class User
 	
 	@Column(name = "password")
 	private String password;
+	
+	@Column(name = "points")
+	private int points;
 
 	public User() {
 		
 	}
-	public User( String username, String password) {
+	public User( String username, String password,int points) {
 		super();
 		this.username = username;
 		this.password = password;
+		this.points = points;
 	}
 	
 	public int getId() {
@@ -53,6 +57,12 @@ public class User
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public int getPoints() {
+		return points;
+	}
+	public void setPoints(int points) {
+		this.points = points;
 	}
 
 	

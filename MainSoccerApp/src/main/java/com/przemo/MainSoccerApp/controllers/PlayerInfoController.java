@@ -5,8 +5,9 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
+import java.util.Date;
 import java.util.ResourceBundle;
+import java.util.concurrent.TimeUnit;
 
 import javax.imageio.ImageIO;
 
@@ -50,7 +51,10 @@ public class PlayerInfoController implements Initializable
 		namePlayer.setText(info);
 		staminaBar.setProgress((double)ManageController.actualPlayer.getStamina() / 100);
 		powerBar.setProgress((double)ManageController.actualPlayer.getPower() / 100);
-		
+		if(!ManageController.actualPlayer.isCanPlay())
+		{
+			trainingButton.setVisible(false);
+		}
 	}
 	
 	public void changePhoto() throws IOException
@@ -85,5 +89,17 @@ public class PlayerInfoController implements Initializable
 		faceimage.setImage(image);
 	}
 	
+	public void training()
+	{
+		if(ManageController.actualPlayer.getStamina() > 20)
+		{
+		Date dt = new Date();
+	    Date newDate = new Date(dt.getTime() + TimeUnit.HOURS.toMillis(2)); // Adds 2 hours		
+		ManageController.actualPlayer.setDateTrain(newDate);
+		ManageController.actualPlayer.setPower(ManageController.actualPlayer.getPower() + 5);
+		ManageController.actualPlayer.setStamina(ManageController.actualPlayer.getStamina() - 20);
+		playerService.update(ManageController.actualPlayer);
+		}
+	}
 	
 }

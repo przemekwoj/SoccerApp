@@ -56,7 +56,7 @@ public class MainSceneController implements Initializable
 	// we need them to see wchich user is already online
 	static String uname;
 	static String pass;
-	static int idManager;
+	static public int idManager;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) 
@@ -128,7 +128,7 @@ public class MainSceneController implements Initializable
 			if(createNewAcc)
 			{
 				//create new account
-				userService.persist(new User(uname,pass));
+				userService.persist(new User(uname,pass,0));
 				//create new standart players for user
 				List<Player> listPlayer= playerService.findAll();
 				for(Player p: listPlayer)

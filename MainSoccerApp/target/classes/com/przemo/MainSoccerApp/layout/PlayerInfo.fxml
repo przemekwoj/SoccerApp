@@ -14,7 +14,7 @@
       <Text layoutX="179.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Power" />
       <Text layoutX="179.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="stamina" />
       <ProgressBar fx:id="staminaBar" layoutX="179.0" layoutY="171.0" prefHeight="18.0" prefWidth="139.0" progress="0.0" />
-      <Button fx:id="trainingButton" layoutX="212.0" layoutY="216.0" mnemonicParsing="false" text="training" />
+      <Button fx:id="trainingButton" layoutX="212.0" layoutY="216.0" mnemonicParsing="false" onAction="#training" text="training" />
       <Button fx:id="changePhotoButton" layoutX="23.0" layoutY="143.0" mnemonicParsing="false" onAction="#changePhoto" prefHeight="25.0" prefWidth="96.0" text="change photo" />
    </children>
 </AnchorPane>

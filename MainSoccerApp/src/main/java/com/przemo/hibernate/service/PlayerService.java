@@ -3,9 +3,7 @@ package com.przemo.hibernate.service;
 import java.util.List;
 
 import com.przemo.MainSoccerApp.entities.Player;
-import com.przemo.MainSoccerApp.entities.User;
 import com.przemo.hibernate.dao.PlayerDao;
-import com.przemo.hibernate.dao.UserDao;
 
 public class PlayerService
 {
